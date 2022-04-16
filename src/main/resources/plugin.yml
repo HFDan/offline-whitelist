@@ -5,3 +5,8 @@ api-version: 1.18
 load: STARTUP
 authors: [ HFDan ]
 description: A plugin that allows using whitelists even when offline
+commands:
+  offlinewhitelist:
+    description: Add or remove someone from the offline whitelist
+    usage: /<command> [list|add|remove|on|off] [player]
+    permission-message: You dont't have <permission>
