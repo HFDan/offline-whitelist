@@ -1,10 +1,14 @@
 package dev.hfdan.offlinewhitelist.listeners;
 
-import dev.hfdan.offlinewhitelist.Offlinewhitelist;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+
+import dev.hfdan.offlinewhitelist.Offlinewhitelist;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.TextComponent;
+import net.kyori.adventure.text.format.TextColor;
 public class JoinListener implements Listener {
 
 	private Offlinewhitelist plugin;
@@ -22,7 +26,11 @@ public class JoinListener implements Listener {
 			boolean wl = plugin.checkPlayerInWhitelist(plr.getName());
 			plugin.getLogger().info("Player is " + (wl ? "" : "not ") + "whitelisted");
 			if (!wl) {
-				plr.kickPlayer("You are not whitelisted");
+				final TextComponent tc = Component.text("You are ")
+					.append(Component.text("NOT")
+					.color(TextColor.color(0xb80000)))
+					.append(Component.text(" whitelisted!")); 
+				plr.kick(tc);
 			}
 
 		}
