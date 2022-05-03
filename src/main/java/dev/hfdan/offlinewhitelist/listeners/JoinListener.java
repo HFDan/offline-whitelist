@@ -5,16 +5,12 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
-import java.sql.*;
-
 public class JoinListener implements Listener {
 
 	private Offlinewhitelist plugin;
 	public JoinListener(Offlinewhitelist plugin) {
 		this.plugin = plugin;
 	}
-
-	private JoinListener() {}
 
 	@EventHandler
 	public void onPlayerJoin(PlayerJoinEvent ev) {

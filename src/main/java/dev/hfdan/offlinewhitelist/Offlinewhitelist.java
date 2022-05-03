@@ -11,13 +11,11 @@ public final class Offlinewhitelist extends JavaPlugin {
 
 	private static Connection conn = null;
 	public boolean enabled = true;
-	private static Offlinewhitelist inst = null;
 
 	@Override
 	public void onEnable() {
 		// Plugin startup logic
 		getLogger().info("Offline Whitelist enabled!");
-		inst = this;
 		getServer().getPluginManager().registerEvents(new JoinListener(this), this);
 		try {
 			Class.forName("org.sqlite.JDBC");
